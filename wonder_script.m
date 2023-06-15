@@ -10,7 +10,7 @@ testFilename = fullfile(dataDir, testFilename);
 content = fileread(testFilename);
 
 % Date
-dateStr = char(datetime, "yyyy-MM-dd");
+dateStr = ['DateTime: ' char(datetime, "yyyy-MM-dd HH:mm:ss")];
 
 % OS information
 if strncmp(computer,'PC',2)
@@ -44,7 +44,7 @@ osInfo = ['OS: ' osInfo];
 
 % Hostname
 [~, hostName] = system('hostname');
-hostName = ['hostname:'  strtrim(hostName)];
+hostName = ['hostname: '  strtrim(hostName)];
     
 % Get Matlab version
 matlabVer = ['Matlab:', ' ', version('-release')];
