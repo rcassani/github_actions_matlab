@@ -1,4 +1,4 @@
-function wonder_script(dataDir)
+function wonder_script()
 % Finds the test.txt file in the dataDir directory
 % Read the content of the test.txt file and 
 % concatenate it with extra information, e.g, hostname, OS, Matlab version, etc.
@@ -6,6 +6,7 @@ function wonder_script(dataDir)
 
 % Read test.txt
 testFilename = 'test.txt';
+dataDir = 'data';
 testFilename = fullfile(dataDir, testFilename);
 content = fileread(testFilename);
 
