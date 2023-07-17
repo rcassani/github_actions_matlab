@@ -15,8 +15,12 @@ dateStr = ['DateTime: ' char(datetime, "yyyy-MM-dd HH:mm:ss")];
 
 % OS information
 if strncmp(computer,'PC',2)
-    [~, ver] = system('ver');
-    osInfo = strtrim(ver);
+    [~, system_info] = system('systeminfo');
+    osName = regexp(system_info, '(?<=OS Name:)(.*?)(?=\n)', 'match');
+    osName = strtrim(osName{1});
+    osVer = regexp(system_info, '(?<=OS Version:)(.*?)(?=\n)', 'match');
+    osVer = strtrim(osVer{1});
+    osInfo = [osName, ' (', osVer, ')'];
 
 elseif strncmp(computer,'MAC',3)
     % OS info
