@@ -60,3 +60,23 @@ jobs:
         run: pwd
       - name: Print results
         run: type .\data\results.txt
+
+  # macOS job
+  Run-MacOS:
+    name: Run on macOS (12 Monterey)
+    runs-on: macos-12
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: Set up Matlab
+        uses: matlab-actions/setup-matlab@v1
+        with:
+          release: ${{ env.MATLAB_VER }}
+      - name: Run script
+        uses: matlab-actions/run-command@v1
+        with:
+          command: wonder_script
+      - name: Print PWD
+        run: pwd
+      - name: Print results
+        run: cat ./data/results.txt
